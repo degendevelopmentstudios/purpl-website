@@ -1,3 +1,4 @@
+"use client";
 import { MobileOptimizedMemeGenerator } from "@/components/mobile-optimized-meme-generator"
 import { MemeOrientationNotice } from "@/components/meme-orientation-notice"
 import EnhancedMemeGenerator from "@/components/enhanced-meme-generator"
