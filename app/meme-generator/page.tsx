@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { MobileOptimizedMemeGenerator } from "@/components/mobile-optimized-meme-generator"
 import { MemeOrientationNotice } from "@/components/meme-orientation-notice"
 import EnhancedMemeGenerator from "@/components/enhanced-meme-generator"
@@ -19,7 +19,6 @@ export default function MemeGeneratorPage() {
   )
 }
 // Client component to handle device detection
-;("use client")
 function ClientMemeGenerator() {
   const isMobile = useMobile()
 
