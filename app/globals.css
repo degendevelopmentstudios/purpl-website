@@ -1,0 +1,768 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 30, 0, 60;
+  --background-end-rgb: 10, 0, 30;
+  --purpl-color: 157, 78, 221;
+  --gold-color: 255, 215, 0;
+}
+
+@font-face {
+  font-family: "Comic Neue";
+  src: url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap");
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewport='0 0 100 100' style='fill:purple;font-size:24px;'><text y='50%' x='5%'>🕯️</text></svg>")
+    16 0, auto;
+}
+
+/* Rainbow text animation */
+.rainbow-text {
+  animation: rainbow-text 8s linear infinite;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes rainbow-text {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.cosmic-text {
+  background: linear-gradient(to right, #ffd700, #ffffff, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.glow {
+  filter: drop-shadow(0 0 10px rgba(157, 78, 221, 0.8));
+}
+
+.sparkle {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 1.5s infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.rotating {
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Meme shake animation */
+.meme-shake {
+  animation: meme-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes meme-shake {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* Bounce animation */
+.bounce-animation {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Spin animation */
+.spin-animation {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Wobble animation */
+.wobble-animation {
+  animation: wobble 2s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(0%);
+  }
+  15% {
+    transform: translateX(-25%) rotate(-5deg);
+  }
+  30% {
+    transform: translateX(20%) rotate(3deg);
+  }
+  45% {
+    transform: translateX(-15%) rotate(-3deg);
+  }
+  60% {
+    transform: translateX(10%) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(-1deg);
+  }
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  animation: glitch-text 3s infinite;
+  color: white;
+  text-shadow: 1px 1px 2px #ff00c1, -1px -1px 2px #00fff9;
+}
+
+@keyframes glitch-text {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+  }
+  4.16666667% {
+    clip: rect(91px, 9999px, 43px, 0);
+  }
+  8.33333333% {
+    clip: rect(15px, 9999px, 73px, 0);
+  }
+  12.5% {
+    clip: rect(33px, 9999px, 5px, 0);
+  }
+  16.66666667% {
+    clip: rect(35px, 9999px, 9px, 0);
+  }
+  20.83333333% {
+    clip: rect(63px, 9999px, 87px, 0);
+  }
+  25% {
+    clip: rect(99px, 9999px, 59px, 0);
+  }
+  29.16666667% {
+    clip: rect(76px, 9999px, 97px, 0);
+  }
+  33.33333333% {
+    clip: rect(76px, 9999px, 65px, 0);
+  }
+  37.5% {
+    clip: rect(56px, 9999px, 14px, 0);
+  }
+  41.66666667% {
+    clip: rect(51px, 9999px, 16px, 0);
+  }
+  45.83333333% {
+    clip: rect(84px, 9999px, 62px, 0);
+  }
+  50% {
+    clip: rect(46px, 9999px, 33px, 0);
+  }
+  54.16666667% {
+    clip: rect(12px, 9999px, 86px, 0);
+  }
+  58.33333333% {
+    clip: rect(100px, 9999px, 85px, 0);
+  }
+  62.5% {
+    clip: rect(61px, 9999px, 27px, 0);
+  }
+  66.66666667% {
+    clip: rect(30px, 9999px, 71px, 0);
+  }
+  70.83333333% {
+    clip: rect(13px, 9999px, 35px, 0);
+  }
+  75% {
+    clip: rect(63px, 9999px, 40px, 0);
+  }
+  79.16666667% {
+    clip: rect(67px, 9999px, 70px, 0);
+  }
+  83.33333333% {
+    clip: rect(8px, 9999px, 12px, 0);
+  }
+  87.5% {
+    clip: rect(55px, 9999px, 49px, 0);
+  }
+  91.66666667% {
+    clip: rect(17px, 9999px, 48px, 0);
+  }
+  95.83333333% {
+    clip: rect(44px, 9999px, 92px, 0);
+  }
+  100% {
+    clip: rect(91px, 9999px, 23px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+  }
+  4.16666667% {
+    clip: rect(96px, 9999px, 3px, 0);
+  }
+  8.33333333% {
+    clip: rect(92px, 9999px, 90px, 0);
+  }
+  12.5% {
+    clip: rect(70px, 9999px, 25px, 0);
+  }
+  16.66666667% {
+    clip: rect(57px, 9999px, 67px, 0);
+  }
+  20.83333333% {
+    clip: rect(20px, 9999px, 41px, 0);
+  }
+  25% {
+    clip: rect(35px, 9999px, 23px, 0);
+  }
+  29.16666667% {
+    clip: rect(96px, 9999px, 67px, 0);
+  }
+  33.33333333% {
+    clip: rect(3px, 9999px, 11px, 0);
+  }
+  37.5% {
+    clip: rect(63px, 9999px, 37px, 0);
+  }
+  41.66666667% {
+    clip: rect(26px, 9999px, 89px, 0);
+  }
+  45.83333333% {
+    clip: rect(57px, 9999px, 10px, 0);
+  }
+  50% {
+    clip: rect(10px, 9999px, 83px, 0);
+  }
+  54.16666667% {
+    clip: rect(33px, 9999px, 41px, 0);
+  }
+  58.33333333% {
+    clip: rect(51px, 9999px, 95px, 0);
+  }
+  62.5% {
+    clip: rect(71px, 9999px, 31px, 0);
+  }
+  66.66666667% {
+    clip: rect(47px, 9999px, 84px, 0);
+  }
+  70.83333333% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  75% {
+    clip: rect(15px, 9999px, 13px, 0);
+  }
+  79.16666667% {
+    clip: rect(10px, 9999px, 57px, 0);
+  }
+  83.33333333% {
+    clip: rect(37px, 9999px, 31px, 0);
+  }
+  87.5% {
+    clip: rect(45px, 9999px, 3px, 0);
+  }
+  91.66666667% {
+    clip: rect(83px, 9999px, 93px, 0);
+  }
+  95.83333333% {
+    clip: rect(18px, 9999px, 75px, 0);
+  }
+  100% {
+    clip: rect(81px, 9999px, 35px, 0);
+  }
+}
+
+/* Marquee animation */
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Neon text effect */
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de, 0 0 40px #ff00de, 0 0 55px #ff00de, 0 0
+    75px #ff00de;
+}
+
+.neon-purple {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #9d4edd, 0 0 30px #9d4edd, 0 0 40px #9d4edd, 0 0 55px #9d4edd, 0 0
+    75px #9d4edd;
+}
+
+/* Doge meme text */
+.doge-text {
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  transform: rotate(-5deg);
+  display: inline-block;
+}
+
+/* Meme hover effect */
+.meme-hover {
+  transition: all 0.3s ease;
+}
+
+.meme-hover:hover {
+  transform: scale(1.1) rotate(3deg);
+  filter: hue-rotate(30deg) brightness(1.2);
+}
+
+/* Image styles */
+.meme-template-img {
+  object-fit: contain;
+  max-height: 300px;
+  width: auto;
+}
+
+/* Sparkle effect for paint tool */
+.sparkle-effect {
+  position: relative;
+  border-radius: 50%;
+  animation: pulse-glow 1.5s infinite alternate;
+}
+
+.sparkle-effect::before,
+.sparkle-effect::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: -1;
+}
+
+.sparkle-effect::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+/* Candle animations */
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1.1;
+    transform: scale(1.05);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+.animate-flicker {
+  animation: flicker 2s infinite ease-in-out;
+}
+
+.animate-glow {
+  animation: glow 3s infinite ease-in-out;
+}
+
+/* Square frame for meme preview */
+.square-frame {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid rgba(157, 78, 221, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
+}
+
+/* Meme content centering */
+.meme-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MS Paint style toolbar */
+.mspaint-toolbar {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #999;
+  padding: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.mspaint-toolbar-button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  border: 1px solid #999;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.mspaint-toolbar-button:hover {
+  background-color: #d0d0d0;
+}
+
+.mspaint-toolbar-button.active {
+  background-color: #c0c0c0;
+  border: 1px solid #666;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* PURPL themed MS Paint */
+.purpl-paint {
+  background-color: #1e003c;
+  border: 2px solid #9d4edd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
+}
+
+.purpl-paint-toolbar {
+  background-color: #2a0052;
+  border-bottom: 1px solid #9d4edd;
+  padding: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.purpl-paint-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3a0066;
+  border: 1px solid #9d4edd;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.purpl-paint-button:hover {
+  background-color: #4a0080;
+  transform: scale(1.05);
+}
+
+.purpl-paint-button.active {
+  background-color: #6a00b3;
+  border: 1px solid #ffd700;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Genie effect animations */
+@keyframes genie-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-10deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes genie-disappear {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(-10deg);
+  }
+}
+
+.genie-appear {
+  animation: genie-appear 0.5s forwards;
+}
+
+.genie-disappear {
+  animation: genie-disappear 0.5s forwards;
+}
+
+/* Paint layer */
+.paint-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 100;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .meme-template-img {
+    max-height: 200px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Instagram-like square aspect ratio for mobile */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Make the meme preview larger on mobile - Instagram-like */
+  #meme-preview {
+    height: min(calc(100vw - 3rem), 500px) !important;
+    width: min(calc(100vw - 3rem), 500px) !important;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+
+  /* Adjust text size for better readability on mobile */
+  #meme-preview h3 {
+    font-size: 1.25rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+
+  /* Make the meme template images fit better in the square container */
+  .meme-template-img {
+    max-height: 80% !important;
+    max-width: 80% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* New text effects */
+.holographic-text {
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff, #33cc33, #ffff00, #ff9900);
+  background-size: 400% 400%;
+  animation: holographic 8s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes holographic {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cyberpunk-text {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+  animation: cyberpunk-flicker 2s infinite alternate;
+}
+
+@keyframes cyberpunk-flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+  }
+}
