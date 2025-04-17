@@ -14,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TokenomicsSection />
+      <NFTSections />
       <RoadmapSection />
       <MemeSection />
       <Footer />
